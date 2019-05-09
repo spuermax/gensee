@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gs_tipboard_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gs_white"
+    android:clickable="false"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#f7f7f8">
+
+        <ImageView
+            android:id="@+id/gs_tip_borad_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/gs_rank_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/gs_tip_board"
+            android:textColor="@color/gs_tip_board_text_color"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/gs_tip_total"
+                android:textColor="@color/gs_tip_board_text_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/gs_ic_rmb" />
+
+            <TextView
+                android:id="@+id/gs_tip_total_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:00"
+                android:textColor="@color/gs_tip_board_text_color"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d3d3d3" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gs_white">
+
+        <LinearLayout
+            android:id="@+id/gs_ll_tip_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.gensee.fastsdk.ui.view.xlistview.XListView
+                android:id="@+id/gs_lv_tip_board"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="#f0f0f0"
+                android:dividerHeight="1dp"
+                android:listSelector="@android:color/transparent"></com.gensee.fastsdk.ui.view.xlistview.XListView>
+
+            <TextView
+                android:id="@+id/tip_empty_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/gs_tip_total_empty"
+                android:textColor="#999999"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_tip_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDrawable="@drawable/gs_loading_progressbar"
+                android:indeterminateDuration="3000"
+                android:indeterminateOnly="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

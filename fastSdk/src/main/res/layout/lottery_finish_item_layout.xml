@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/gs_lottery_finish_item_hor"
+    android:paddingTop="@dimen/gs_lottery_finish_item_hor"
+    android:textColor="@color/gs_lottery_going_text"
+    android:gravity="center"
+    android:singleLine="true"
+    android:textSize="@dimen/gs_lottery_going_text" >
+
+</TextView>

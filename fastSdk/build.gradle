@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 27
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Move the tests to tests/java, tests/res, etc...
+    //instrumentTest.setRoot('tests')
+
+    // Move the build types to build-types/<type>
+    // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+    // This moves them out of them default location under src/<type>/... which would
+    // conflict with src/ being used by the main source set.
+    // Adding new build types or product flavors should be accompanied
+    // by a similar customization.
+//    debug.setRoot('build-types/debug')
+//    release.setRoot('build-types/release')
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+//    api files('libs/gensee_doc.jar')
+//    api files('libs/gensee_common.jar')
+//    api files('libs/gensee_hb.jar')
+//    api files('libs/gensee_rt_audio.jar')
+//    api files('libs/gensee_rtsdk.jar')
+//    api files('libs/gensee_video.jar')
+//    api files('libs/gensee_rtmpplayer.jar')
+//    api files('libs/gensee_baseplayer.jar')
+//    api files('libs/gensee_vod_ol.jar')
+//    api files('libs/gensee_danmu.jar')
+//    api files('libs/gensee_fastsdk.jar')
+//    api files('libs/alipaySdk-20160825.jar')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+//    api files('libs/gensee_expression.jar')
+}
+
+apply from: './nexus_push.gradle'

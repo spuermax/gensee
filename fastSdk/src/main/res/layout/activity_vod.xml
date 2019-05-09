@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_vod_back_gray" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="#313131"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <com.gensee.view.GSVideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_below="@+id/rl_toolbar" />
+
+    <com.gensee.vodsdk.view.FullTouchLayout
+        android:id="@+id/doc_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/video_view" />
+
+    <!--<View-->
+    <!--android:id="@+id/view_full_bg"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@color/vod_video_controller_bg"-->
+    <!--android:visibility="gone" />-->
+
+    <LinearLayout
+        android:id="@+id/ll_full_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/vod_video_controller_bg"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_full_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_vod_back_white" />
+
+        <TextView
+            android:id="@+id/tv_full_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_controller_bar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignBottom="@+id/video_view"
+        android:layout_gravity="bottom"
+        android:background="@color/vod_video_controller_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingRight="10dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/sel_controller_play" />
+
+        <TextView
+            android:id="@+id/tv_controller_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            tools:text="00:00/00:00" />
+
+        <SeekBar
+            android:id="@+id/seekbarpalyviedo"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:maxHeight="2dp"
+            android:minHeight="2dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:progressDrawable="@drawable/gensee_play_seek_progress"
+            android:thumb="@drawable/gensee_play_seek_thumb"
+            android:thumbOffset="10dp" />
+
+        <ImageView
+            android:id="@+id/iv_controller_download"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/sel_gensee_download"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_speed"
+            android:layout_width="32dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:background="@drawable/white_shape_rectangle_bg"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="10sp"
+            tools:text="1x" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_full_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_toolbar"
+        android:paddingTop="16dp">
+
+        <ImageView
+            android:id="@+id/iv_fullscreen_video"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/rect_solid_vod_play"
+            android:scaleType="center"
+            android:src="@drawable/icon_gensee_full" />
+
+        <ImageView
+            android:id="@+id/tv_download"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@+id/iv_fullscreen_video"
+            android:background="@drawable/rect_solid_vod_play"
+            android:scaleType="center"
+            android:src="@drawable/sel_gensee_download" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_fullscreen_doc"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignRight="@+id/doc_view"
+        android:layout_alignBottom="@+id/doc_view"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rect_solid_vod_play"
+        android:scaleType="center"
+        android:src="@drawable/icon_gensee_full" />
+
+    <com.gensee.vodsdk.view.GenseeSeekChangeBarView
+        android:id="@+id/seek_change_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/video_view"
+        android:layout_alignTop="@+id/video_view"
+        android:layout_alignRight="@+id/video_view"
+        android:layout_alignBottom="@id/video_view"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

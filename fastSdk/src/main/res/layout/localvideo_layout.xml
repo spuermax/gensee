@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/receiverlocalvideoview_rl"
+        style="@style/gs_both_wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/gs_black">
+
+        <com.gensee.view.LocalTextureVideoView
+            android:id="@+id/receiverlocalvideoview"
+            android:layout_width="1px"
+            android:layout_height="1px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/border_rl"
+        android:layout_alignRight="@+id/receiverlocalvideoview_rl"
+        style="@style/gs_both_wrap_content"
+        android:layout_alignBottom="@+id/receiverlocalvideoview_rl"
+        android:layout_alignTop="@+id/receiverlocalvideoview_rl"
+        android:background="@color/gs_transparent">
+        <ImageView
+            android:id="@+id/receiverLocalVideoCloseIv"
+            style="@style/gs_both_wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/localvideoview_close" />
+
+        <ImageView
+            android:id="@+id/receiverLocalVideoSwitchIv"
+            style="@style/gs_both_wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            android:background="@drawable/localvideoview_switch_camera" />
+    </RelativeLayout>
+</RelativeLayout>
