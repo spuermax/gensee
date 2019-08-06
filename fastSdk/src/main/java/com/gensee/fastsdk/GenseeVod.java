@@ -21,19 +21,41 @@ public class GenseeVod {
 
     public static int GENSEE_VOD_RESULT = 1001;
 
+
+
     /**
      * 在线播放
      */
     public static void startVod(final Context context, InitParam initParam, final String title) {
-//        VodHandler vodHandler = new VodHandler(context);
-//        Bundle bundle = new Bundle();
+        VodHandler vodHandler = new VodHandler(context);
+        Bundle bundle = new Bundle();
 //       // bundle.putString("vodId", vodId);
-//        bundle.putSerializable("play_param", initParam);
-//        bundle.putString("title", title);
-//        vodHandler.sendMessage(vodHandler.obtainMessage(VodHandler.ON_GET_VODOBJ_FOR_PLAY, bundle));
+        bundle.putSerializable("play_param", initParam);
+        bundle.putString("title", title);
+        vodHandler.sendMessage(vodHandler.obtainMessage(VodHandler.ON_GET_VODOBJ_FOR_PLAY, bundle));
+
+    }
+
+    /**
+     * 在线播放
+     */
+    public static void startVod(final Context context, InitParam initParam, final String title, VodActivity.OnclickListener onclickListener) {
         Intent intent = new Intent(context, VodActivity.class);
         intent.putExtra("play_param", initParam);
         intent.putExtra("title", title);
+        intent.putExtra("onClick",onclickListener);
+        ((AppCompatActivity) context).startActivityForResult(intent, 1);
+    }
+
+    /**
+     * 离线播放
+     */
+    public static void startVod(Context context, String localPath, String vodId, String title, VodActivity.OnclickListener onclickListener) {
+        Intent intent = new Intent(context, VodActivity.class);
+        intent.putExtra("vodId", vodId);
+        intent.putExtra("play_path", localPath);
+        intent.putExtra("title", title);
+        intent.putExtra("onClick",onclickListener);
         ((AppCompatActivity) context).startActivityForResult(intent, 1);
     }
 
@@ -41,17 +63,12 @@ public class GenseeVod {
      * 离线播放
      */
     public static void startVod(Context context, String localPath, String vodId, String title) {
-//        VodHandler vodHandler = new VodHandler(context);
-//        Bundle bundle = new Bundle();
-//        bundle.putString("vodId", vodId);
-//        bundle.putString("localPath", localPath);
-//        bundle.putString("title", title);
-//        vodHandler.sendMessage(vodHandler.obtainMessage(VodHandler.ON_GET_VODOBJ_FOR_LOCAL, bundle));
-        Intent intent = new Intent(context, VodActivity.class);
-        intent.putExtra("vodId", vodId);
-        intent.putExtra("play_path", localPath);
-        intent.putExtra("title", title);
-        ((AppCompatActivity) context).startActivityForResult(intent, 1);
+        VodHandler vodHandler = new VodHandler(context);
+        Bundle bundle = new Bundle();
+        bundle.putString("vodId", vodId);
+        bundle.putString("localPath", localPath);
+        bundle.putString("title", title);
+        vodHandler.sendMessage(vodHandler.obtainMessage(VodHandler.ON_GET_VODOBJ_FOR_LOCAL, bundle));
     }
 
 }

@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -49,6 +50,7 @@ import com.gensee.vodsdk.view.FullTouchLayout;
 import com.gensee.vodsdk.view.GenseeLoadDialog;
 import com.gensee.vodsdk.view.GenseeSeekChangeBarView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +58,8 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
         VODPlayer.OnVodPlayListener, View.OnClickListener {
 
     private static final int DEFAULT_FADE_OUT_TIME = 5000;
+
+    private OnclickListener onclickListener;
 
     private Context mContext;
     private VODPlayer mGSOLPlayer;
@@ -82,6 +86,7 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
     private LinearLayout llFullToolbar;
     private ImageView ivFullBack;
     private TextView tvFullTitle;
+    private ImageView iv_share;
 
     private boolean isTouch = false;
 
@@ -119,6 +124,7 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
         mVodId = getIntent().getStringExtra("vodId");
         mLocalpath = getIntent().getStringExtra("play_path");
         mInitParam = (InitParam) getIntent().getSerializableExtra("play_param");
+        onclickListener = (OnclickListener) getIntent().getSerializableExtra("onClick");
 
         initView();
 
@@ -131,6 +137,7 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
         ivFullDoc.setOnClickListener(this);
         ivControllerDownload.setOnClickListener(this);
         ivFullBack.setOnClickListener(this);
+        iv_share.setOnClickListener(this);
 
         ivBack.setOnClickListener(this);
         ivPlay.setOnClickListener(this);
@@ -174,6 +181,7 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
         llFullToolbar = findViewById(R.id.ll_full_toolbar);
         tvFullTitle = findViewById(R.id.tv_full_title);
         ivFullBack = findViewById(R.id.iv_full_back);
+        iv_share = findViewById(R.id.iv_share);
 
         tvDownload = findViewById(R.id.tv_download);
         ivFullVideo = findViewById(R.id.iv_fullscreen_video);
@@ -310,6 +318,8 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
             }
 
             setDownloadStatus();
+        } else if (v.getId() == R.id.iv_share) {
+            onclickListener.onShareClick();
         }
     }
 
@@ -882,6 +892,11 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
 
         toast.setView(view);
         toast.show();
+    }
+
+
+    public interface OnclickListener extends Serializable {
+        void onShareClick();
     }
 
 }
