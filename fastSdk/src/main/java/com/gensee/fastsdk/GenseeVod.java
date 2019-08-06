@@ -39,7 +39,7 @@ public class GenseeVod {
     /**
      * 在线播放
      */
-    public static void startVod(final Context context, InitParam initParam, final String title, VodActivity.OnclickListener onclickListener) {
+    public static void startVod(final Context context, InitParam initParam, final String title, OnclickListener onclickListener) {
         Intent intent = new Intent(context, VodActivity.class);
         intent.putExtra("play_param", initParam);
         intent.putExtra("title", title);
@@ -50,7 +50,7 @@ public class GenseeVod {
     /**
      * 离线播放
      */
-    public static void startVod(Context context, String localPath, String vodId, String title, VodActivity.OnclickListener onclickListener) {
+    public static void startVod(Context context, String localPath, String vodId, String title, OnclickListener onclickListener) {
         Intent intent = new Intent(context, VodActivity.class);
         intent.putExtra("vodId", vodId);
         intent.putExtra("play_path", localPath);

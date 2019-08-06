@@ -35,6 +35,7 @@ import com.gensee.entity.DocInfo;
 import com.gensee.entity.InitParam;
 import com.gensee.entity.PageInfo;
 import com.gensee.fastsdk.GenseeVod;
+import com.gensee.fastsdk.OnclickListener;
 import com.gensee.fastsdk.R;
 
 import com.gensee.media.PlaySpeed;
@@ -892,11 +893,6 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
 
         toast.setView(view);
         toast.show();
-    }
-
-
-    public interface OnclickListener extends Serializable {
-        void onShareClick();
     }
 
 }
