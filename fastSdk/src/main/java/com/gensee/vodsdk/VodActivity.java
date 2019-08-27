@@ -60,8 +60,6 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
 
     private static final int DEFAULT_FADE_OUT_TIME = 5000;
 
-    private OnclickListener onclickListener;
-
     private Context mContext;
     private VODPlayer mGSOLPlayer;
     private GSVideoView mGSVideoView;
@@ -87,7 +85,6 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
     private LinearLayout llFullToolbar;
     private ImageView ivFullBack;
     private TextView tvFullTitle;
-    private ImageView iv_share;
 
     private boolean isTouch = false;
 
@@ -125,7 +122,6 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
         mVodId = getIntent().getStringExtra("vodId");
         mLocalpath = getIntent().getStringExtra("play_path");
         mInitParam = (InitParam) getIntent().getSerializableExtra("play_param");
-        onclickListener = (OnclickListener) getIntent().getSerializableExtra("onClick");
 
         initView();
 
@@ -138,7 +134,6 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
         ivFullDoc.setOnClickListener(this);
         ivControllerDownload.setOnClickListener(this);
         ivFullBack.setOnClickListener(this);
-        iv_share.setOnClickListener(this);
 
         ivBack.setOnClickListener(this);
         ivPlay.setOnClickListener(this);
@@ -182,7 +177,6 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
         llFullToolbar = findViewById(R.id.ll_full_toolbar);
         tvFullTitle = findViewById(R.id.tv_full_title);
         ivFullBack = findViewById(R.id.iv_full_back);
-        iv_share = findViewById(R.id.iv_share);
 
         tvDownload = findViewById(R.id.tv_download);
         ivFullVideo = findViewById(R.id.iv_fullscreen_video);
@@ -319,8 +313,6 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
             }
 
             setDownloadStatus();
-        } else if (v.getId() == R.id.iv_share) {
-            onclickListener.onShareClick();
         }
     }
 

@@ -36,28 +36,7 @@ public class GenseeVod {
 
     }
 
-    /**
-     * 在线播放
-     */
-    public static void startVod(final Context context, InitParam initParam, final String title, OnclickListener onclickListener) {
-        Intent intent = new Intent(context, VodActivity.class);
-        intent.putExtra("play_param", initParam);
-        intent.putExtra("title", title);
-        intent.putExtra("onClick",onclickListener);
-        ((AppCompatActivity) context).startActivityForResult(intent, 1);
-    }
 
-    /**
-     * 离线播放
-     */
-    public static void startVod(Context context, String localPath, String vodId, String title, OnclickListener onclickListener) {
-        Intent intent = new Intent(context, VodActivity.class);
-        intent.putExtra("vodId", vodId);
-        intent.putExtra("play_path", localPath);
-        intent.putExtra("title", title);
-        intent.putExtra("onClick",onclickListener);
-        ((AppCompatActivity) context).startActivityForResult(intent, 1);
-    }
 
     /**
      * 离线播放
