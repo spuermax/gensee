@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -391,6 +392,10 @@ public class VodActivity extends AppCompatActivity implements OnDocViewEventList
                 isHaveDownload = true;
                 break;
             }
+        }
+
+        if (Looper.getMainLooper().getThread().getId() != Thread.currentThread().getId()) {
+            return;
         }
 
         if (isHaveDownload) {
